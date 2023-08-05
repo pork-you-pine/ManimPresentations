@@ -1,0 +1,70 @@
+[tool.poetry]
+name = "presentations"
+version = "0.1.0"
+description = "Slides / Clips used in presentations that were created with Manim."
+authors = ["Philipp Langen <philipp.langen@yahoo.de>"]
+readme = "README.md"
+packages = [{include = "src"}]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.12"
+manim = "^0.17.3"
+numpy = "^1.25.2"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.4.1"
+pre-commit = "^3.3.3"
+tox = "^4.6.4"
+
+
+[tool.poetry.group.tests.dependencies]
+pytest = "^7.4.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+fix = true
+select = [
+    "E", "W",  # pycodestyle
+    "F",  # pyflakes
+    "I",  # isort
+    "D",  # pydocstyle
+    "N",  # pep8-naming
+    "UP",  # pyupgrade
+    "BLE",  # flake8-blind-except
+    "A",  # flake8-buildins
+    "ISC",  # flake8-implicit-str-concat
+    "ICN",  # flake8-import-conventions
+    "G",  # flake-logging-format
+    "INP",  # flake8-implicit-namespace-package
+    "PIE",  # flake8-pie
+    "T20",  # flake8-print
+    "Q",  # flake8-quotes
+    "RSE",  # flake8-raise
+    "RET",  # flake8-return
+    "SLF",  # flake8-self
+    "SLOT",  # flake8-slots
+    "SIM",  # flake8-simplify
+    "TID",  # flake8-tidy-imports
+    "ARG",  # flake8-unused-arguments
+    "PTH",  # flake-use-pathlib
+    "ERA",  # eradicate-commented-code
+    "PL",  # pylint
+    "RUF",  # ruff-specific-rules
+]
+src = ["src", "tests"]
+target-version = "py311"
+
+
+[tool.ruff.pydocstyle]
+convention = "numpy"
+
+[tool.mypy]
+warn_no_return = true
+warn_redundant_casts = true
+warn_unreachable = true
+
+check_untyped_defs = true
+follow_imports = "normal"
