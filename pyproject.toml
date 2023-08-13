@@ -68,3 +68,10 @@ warn_unreachable = true
 
 check_untyped_defs = true
 follow_imports = "normal"
+
+
+[[tool.mypy.overrides]]
+module = [
+    "manim.*"
+]
+ignore_missing_imports = true
